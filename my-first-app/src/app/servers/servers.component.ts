@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class ServersComponent {
   allowNewserver:boolean=false;
   serverMsg='New server is not created';
+  serverName='testserver';
+  username='';
+  allowButton=true;
 
   constructor(){
     setTimeout(() => {
@@ -15,6 +18,16 @@ export class ServersComponent {
     }, 5000);
   }
   onServerBtnClick(){
-    this.serverMsg='New server is created';
+    this.serverMsg='New server is created and name is'+this.serverName;
+  }
+  onServerUpdate(event:Event){
+    this.serverName=(<HTMLInputElement>event.target).value;
+  }
+  onusernameUpdate(event:Event){
+    this.username=(<HTMLInputElement>event.target).value;
+    this.allowButton=false;
+  }
+  onUserNameButton(){
+      this.username='';
   }
 }

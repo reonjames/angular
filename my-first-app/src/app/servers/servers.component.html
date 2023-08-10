@@ -1,8 +1,24 @@
 <p>servers works!</p>
 
 <app-server></app-server>
+<input type="text"
+class="form-control"
+(input)="onServerUpdate($event)">
+{{ serverName }}
+<hr>
+<input type ="text"
+class="form-control"
+[(ngModel)]="serverName">
 <button
     class="btn btn-primary"
     [disabled]="!allowNewserver"
     (click)="onServerBtnClick()">Add server</button>
-<p>{{ serverMsg }}</p>    
+<p>{{ serverMsg }}</p>  
+<hr>
+<input type="text"
+class="form-control"
+(input)="onusernameUpdate($event)"> 
+{{ username }} 
+<button class="btn btn-primary"
+ [disabled]="allowButton" 
+ (click)="onUserNameButton()">Add new username</button>
