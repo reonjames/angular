@@ -11,6 +11,8 @@ export class ServersComponent {
   serverName='testserver';
   username='';
   allowButton=true;
+  serverColor=Math.random()>0.5 ? 'red': 'green';
+  
 
   constructor(){
     setTimeout(() => {
@@ -30,4 +32,8 @@ export class ServersComponent {
   onUserNameButton(){
       this.username='';
   }
+  getColor(){
+    return this.serverColor;
+  }
+  
 }

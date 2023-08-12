@@ -1,3 +1,12 @@
+<input type="text"
+[(ngModel)]="serverName">
+<button
+(click)="onAddServer()">Add Server</button>
 <p>hello world</p>
 <hr>
 <p>my {{ serviceName }} service id is {{ serviceId}}</p>
+<button (click)="getClickToSee()">click to see</button><br>
+<p *ngIf="clickToSee; else noChange">eppo marii</p>
+<ng-template #noChange>
+    <p>maritilla</p>
+</ng-template>
