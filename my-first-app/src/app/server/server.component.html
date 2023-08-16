@@ -6,7 +6,16 @@
 <hr>
 <p>my {{ serviceName }} service id is {{ serviceId}}</p>
 <button (click)="getClickToSee()">click to see</button><br>
-<p *ngIf="clickToSee; else noChange">eppo marii</p>
-<ng-template #noChange>
+<p *ngIf="clickToSee; else noChange1">eppo marii</p>
+<ng-template #noChange1>
     <p>maritilla</p>
 </ng-template>
+<button (click)="onChangeClick()">Display details</button>
+<p *ngIf="changeClick; else noChange2">Secret password=tuna</p>
+<ng-template #noChange2>
+    <p>Click to see Secret password</p>
+</ng-template>
+<p *ngFor="let x of incrArr"
+[ngStyle]="{backgroundColor: x>=5? 'blue':'transparent'}"
+[ngClass]="{'white-text':x>=5}">{{ x }}</p>
+<br>
