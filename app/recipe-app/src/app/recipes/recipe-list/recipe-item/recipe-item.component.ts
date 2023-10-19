@@ -13,8 +13,9 @@ export class RecipeItemComponent implements OnInit{
     this.recipe=this.receipeServ.recipes[0];
   }
 
-@Output() recipeDet =new EventEmitter<Recipe>();
+//@Output() recipeDet =new EventEmitter<Recipe>();
 onRecipeList(){
-  this.recipeDet.emit(this.recipe);
+  //this.recipeDet.emit(this.recipe);
+  this.receipeServ.receipeSelected.emit(this.recipe);
 }
 }

@@ -1,4 +1,4 @@
-import { Component,Output,EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { receipeService } from '../receipe.service';
 
@@ -8,7 +8,7 @@ import { receipeService } from '../receipe.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-@Output() recipeEmit=new EventEmitter<Recipe>();
+//@Output() recipeEmit=new EventEmitter<Recipe>();
 recipes: Recipe[];
   // recipes: Recipe[] = [
   //   new Recipe('A test recipe','This is my first recipe','https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe.jpg')
@@ -17,7 +17,5 @@ recipes: Recipe[];
   ngOnInit(): void {
     this.recipes=this.receipeServ.recipes;
   }
-  onRecipeDet(recipe:Recipe){
-    this.recipeEmit.emit(recipe);
-  }
+  
 }
