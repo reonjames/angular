@@ -99,3 +99,33 @@ Basic attribute Directive:
 }
 @HostBinding('style.backgroundColor') backgroundColor: String = 'transparent';			//with hostBinding we don't need to use renderer
 and inside hostListener instead of using renderer use this.backgroundColor = 'blue';
+
+ngSwitch:										//alternative of multiple switch
+	<div [ngSwitch]="value">
+		<p *ngSwitchCase="5">Value is 5</p>
+		<p *ngSwitchCase="10">Value is 10</p>
+		<p *ngSwitchDefault>Value is 20</p>
+	</div>
+_.service.ts				//used to centralize the code so that it can be reused in different component
+	After defining the service.ts use injector to instantiate in the component
+	To use service in other component
+		providers:[<service class name>]			// this is injector
+		constructor(private <variable name>: <service name>)
+		in any method:
+			this.<variable>.<methodName from service.ts>(argument);
+		alter of injecting through constructor u can inject through inject() function
+	
+		@Injectable() is used when we want to inject one service into another service.
+	With service we can cross communicate between components.Here carefull about instantiating object better to do at app level.	
+Routes								//used to load different component with different URL in single page
+Routes should be declare at app.module.ts level
+To declare different routes with its component:
+	example: const appRoutes:Routes =[				//import Routes from @angular/router
+			{ path: '', component: <componentName> },
+			{ path: '<urlName after slash>', component: <componentName> }
+		];
+Angular would not knows about router unless it is register under imports
+	Add RouterModule in imports section			//import RouterModule from @angular/router
+	now register routes
+		example: under import section add RouterModule.forRoot(<RoutesName>)
+With angular directive <router-outlet> It marks the place in our document where we want the angular router to load the component of the currently selected route
