@@ -129,3 +129,16 @@ Angular would not knows about router unless it is register under imports
 	now register routes
 		example: under import section add RouterModule.forRoot(<RoutesName>)
 With angular directive <router-outlet> It marks the place in our document where we want the angular router to load the component of the currently selected route
+routerLink:<a routerLink="/home">Home</a>		// it does not reload the page but direct it to that component.
+routerLinkActive: <li role="presentation" routerLinkActive="active"><a routerLink="/home">Home</a>		//to active our current component
+this.router.navigate(['/home'])			// for this inject router in constructor, this is used to navigate programatically as compare to above feature
+this.router.navigate(['home'], {relativeTo: this.route})		//inject route: ActivatedRoute in constructor, this route contains metadata 
+
+To dynamically load component :
+	const appRoutes:Routes=[
+	{ path:'home/:id',component:HomeComponent }				//here :id is replaced dynamically with whatever comes home/ 
+	]	 
+
+fetching route parameter:
+	from ActivatedRoute get id value
+		this.route.snapshot.params['id']			//here route dataType is ActivatedRoute, this contains metadata
