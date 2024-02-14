@@ -141,4 +141,13 @@ To dynamically load component :
 
 fetching route parameter:
 	from ActivatedRoute get id value
-		this.route.snapshot.params['id']			//here route dataType is ActivatedRoute, this contains metadata
+		id:this.route.snapshot.params['id']			//here route dataType is ActivatedRoute, this contains metadata
+fetching route parameter reactively:
+	<a [routerLink]="['/users',10,'Anna']">Load Anna (10)</a>		//by clicking on load Anna link /users/10/Anna will load 
+	to dynamically assign id:
+		this.route.params.subscribe(
+			(params:Params)=>{
+				this.user.id=params['id'];}); 
+[queryParams]="{allowEdit:'1'}"		//to show query parameter in url.Same can be done using router.navigate();
+To fetch queryParameter value:
+	initialize ActivatedRoute e.g: this.route.queryParams.subscribe();
